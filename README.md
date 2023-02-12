@@ -42,3 +42,5 @@ Really Simple TODO CLI in RUST
 - [Printing Individual Lines]()
 - [Time in Format: chrono](https://docs.rs/chrono/latest/chrono/#formatting-and-parsing)
 - [Time in Strftime Format](https://docs.rs/chrono/latest/chrono/format/strftime/)
+
+- [Writing to JSON](https://docs.rs/chrono/latest/chrono/format/strftime/)

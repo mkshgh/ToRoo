@@ -5,48 +5,36 @@ const _DATE_FORMAT_STR: &'static str = "%Y-%m-%dT%H:%M:%S%.3fz";
 fn main() {
     let mstr = "List Name: has following tasks:";
     println!("{}",mstr.len());
-    let (_time, list_name) = ask_for_list();
-    let task_vector = ask_tasks();
-    printTaskList(list_name,task_vector);
+    let (_time, task_name, task_description) = add_task_list();
+    print_task_list(task_name,task_description);
 }
 
-fn ask_for_list() -> (DateTime<Utc>,String){
+fn add_task_list() -> (DateTime<Utc>,String,String){
     let time_in_sec = chrono::offset::Utc::now();
+    let mut task_name:String = String::from("");
+    let mut task_description:String = String::from("");
+
     print!("Insert a To-Do List: ");
-    io::stdout().flush();
-    let mut todo_list:String = String::from("");
-    std::io::stdin().read_line(&mut todo_list).unwrap();
-    (time_in_sec,todo_list)
-}
-fn ask_for_list_test() -> (DateTime<Utc>,String){
-    let time_in_sec = chrono::offset::Utc::now();
-    let mut todo_list:String = String::from("List 1");
-    (time_in_sec,todo_list)
-}
-fn ask_tasks()-> Vec<String>{
-    println!("Add Tasks to the lists (Leave Blank and Press Enter to Finish):");
-    let mut task_vector:Vec<String> = Vec::new();
-    loop{
-        print!("- ");
-        let mut myWorks = String::from("");
-        io::stdout().flush();
-        std::io::stdin().read_line(&mut myWorks).unwrap();
-        if myWorks=="\r\n"{
-            break;
-        }
-        else{
-            task_vector.push(myWorks.trim().to_owned());
-            let myWorks="";
-        }
-    }
-    task_vector
+    io::stdout().flush().expect("Issue with Printing Text");
+    std::io::stdin().read_line(&mut task_name).unwrap();
+
+
+    print!("Add Desription(Leave Empty if None): ");
+    io::stdout().flush().expect("Issue with Printing Text");
+    std::io::stdin().read_line(&mut task_description).unwrap();
+
+    (time_in_sec,task_name.replace("\r\n",""),task_description.replace("\r\n",""))
 }
 
-fn printTaskList(list_name:String,task_vector:Vec<String>){
-    println!("\nList Name:{} has following {} tasks:",list_name,task_vector.len().to_string());
-    let decorators = "-".repeat(35+task_vector.len());
+
+
+fn print_task_list(task_name:String,task_description:String){
+    println!("\nTask Name: {}",task_name);
+    let decorators = "-".repeat(11+task_name.len());
     println!("{}",decorators);
-    for tasks in &task_vector{
-        println!("-> {}",tasks);
+    // Just for making it look good
+    match task_description.len(){
+        0 => println!("{task_name}"),
+         _ => println!("{task_description}"),
     }
 }
