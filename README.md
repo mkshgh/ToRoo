@@ -20,7 +20,6 @@ Really Simple TODO CLI in RUST
 - All
 
 ### Sections of App
-
 - Listed -> can be moved to Doing
 - Doing -> can be moved to Listed or Done
 - Done  -> can be moved to Doing 
@@ -33,6 +32,7 @@ Really Simple TODO CLI in RUST
 - Double Esc -> Close the Application
 
 ### Integrations
+- DB in DSV for starters (\,) slash followed by comma
 - Sync to Google / Onedrive
 - Export/Import using csv or other formats
 
@@ -42,5 +42,4 @@ Really Simple TODO CLI in RUST
 - [Printing Individual Lines]()
 - [Time in Format: chrono](https://docs.rs/chrono/latest/chrono/#formatting-and-parsing)
 - [Time in Strftime Format](https://docs.rs/chrono/latest/chrono/format/strftime/)
-
-- [Writing to JSON](https://docs.rs/chrono/latest/chrono/format/strftime/)
+- [Writing to JSON](https://www.youtube.com/watch?v=cyVLw_7Vhb8)

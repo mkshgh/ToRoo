@@ -1,12 +1,19 @@
-use std::{io::{self, Write}};
+use std::{io::{self, Write, Read},path::Path,fs::File};
 use chrono::{self, DateTime, Utc};
 const _DATE_FORMAT_STR: &'static str = "%Y-%m-%dT%H:%M:%S%.3fz";
+const db_name:&str = "D:\\Onedrive\\Code\\erlang\\ToRoo\\src\\DB\\lists.db";
+
+struct tasList {
+    uuid: String,
+    taskname: String,
+    task_priority: char,
+}
 //time.format(DATE_FORMAT_STR).to_string()
 fn main() {
-    let mstr = "List Name: has following tasks:";
-    println!("{}",mstr.len());
-    let (_time, task_name, task_description) = add_task_list();
-    print_task_list(task_name,task_description);
+    // let (_time, task_name, task_description) = add_task_list();
+    // print_task_list(task_name,task_description);
+    read_dsv(0)
+
 }
 
 fn add_task_list() -> (DateTime<Utc>,String,String){
@@ -37,4 +44,27 @@ fn print_task_list(task_name:String,task_description:String){
         0 => println!("{task_name}"),
          _ => println!("{task_description}"),
     }
+}
+
+fn read_dsv(no_of_elements:u128){
+    let file_path:&Path = Path::new(db_name);
+    let mut db_content:String = "".to_string();
+    let mut db_file:File = File::open(file_path).expect("Could not open file");
+    db_file.read_to_string(&mut db_content).unwrap();
+    db_file;
+    for i in db_content.lines(){
+        println!("Start ---------");
+        split_dsv(i);
+    }
+}
+
+fn split_dsv(word:&str)->Vec<String>{
+    let mut myVec:Vec<String> = Vec::new();
+    let mut data = word.split("\\,");
+    for i in data{
+        myVec.push(i.to_owned());
+        // Just for test
+        println!("{}",i.to_owned())
+    }
+    myVec
 }
