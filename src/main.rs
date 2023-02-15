@@ -88,7 +88,7 @@ fn update_tsv(id:String,new_task_list:String) -> bool {
     }
     drop(file);
     fs::remove_file(file_path).expect("Could not delete File");
-    fs::rename(temp_file_path,file_path)?;
+    fs::rename(temp_file_path,file_path).expect("Could not Rebuild the DB");
     true
 }
 

@@ -41,5 +41,8 @@ Really Simple TODO CLI in RUST
 - [Printing Individual Lines]()
 - [Time in Format: chrono](https://docs.rs/chrono/latest/chrono/#formatting-and-parsing)
 - [Writing to File](https://www.includehelp.com/rust/append-data-into-an-existing-file.aspx) and [How it works](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/std/fs/struct.OpenOptions.html)
+- [Creating a File](https://doc.rust-lang.org/rust-by-example/std_misc/file/create.html)
+- [Rename File in rust](https://doc.rust-lang.org/std/fs/fn.rename.html)
+- [Remove File in rust](https://doc.rust-lang.org/std/fs/fn.remove_file.html)
 - [Time in Strftime Format](https://docs.rs/chrono/latest/chrono/format/strftime/)
 - [Writing to JSON](https://www.youtube.com/watch?v=cyVLw_7Vhb8)
