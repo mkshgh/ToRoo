@@ -35,6 +35,9 @@ Really Simple TODO CLI in RUST
 - Sync to Google / Onedrive
 - Export/Import using csv or other formats
 
+### Problems
+- When deleting or updating at the end of the file, there is a added new line in the db. How to detect and delete that.
+
 ## References
 - [Not Building for Windows](https://stackoverflow.com/questions/55603111/unable-to-compile-rust-hello-world-on-windows-linker-link-exe-not-found)
 - [Reding line from terminal](https://www.tutorialspoint.com/rust/rust_input_output.htm)
